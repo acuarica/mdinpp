@@ -1,0 +1,38 @@
+{
+    "name": "mdpp",
+    "version": "0.1.0",
+    "description": "Markdown Preprocessor In-Place",
+    "author": "Luis Mastrangelo",
+    "license": "MIT",
+    "exports": "./src/index.js",
+    "type": "module",
+    "scripts": {
+        "check": "tsc",
+        "test": "mocha"
+    },
+    "keywords": [
+        "cli",
+        "embed",
+        "docs",
+        "include",
+        "inplace",
+        "macro",
+        "markdown",
+        "marker",
+        "preprocessor",
+        "readme",
+        "text"
+    ],
+    "dependencies": {
+        "ansi-colors": "^4.1.3"
+    },
+    "devDependencies": {
+        "@jsdevtools/chai-exec": "^2.1.1",
+        "@types/chai": "^5.2.1",
+        "@types/mocha": "^10.0.10",
+        "@types/node": "^22.13.14",
+        "chai": "^5.2.0",
+        "mocha": "^11.1.0",
+        "typescript": "^5.8.2"
+    }
+}

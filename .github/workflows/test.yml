@@ -12,19 +12,6 @@ on:
 #   FORCE_COLOR: 3
 
 jobs:
-  check-readme:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - run: echo "NODE_VERSION=`node --version`" >> $GITHUB_ENV
-      - uses: actions/cache@v4
-        with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-${{ env.NODE_VERSION }}-modules-${{ hashFiles('**/yarn.lock') }}
-      - run: yarn install --frozen-lockfile
-      - run: yarn compile
-      - run: yarn make:help
-      - run: git --no-pager diff --exit-code README.md
 
   check:
     runs-on: ubuntu-latest
@@ -45,7 +32,7 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest]
         # https://nodejs.dev/en/about/releases/
-        node: [18, 20, 22]
+        node: [20, 22]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4

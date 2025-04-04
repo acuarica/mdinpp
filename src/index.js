@@ -2,8 +2,8 @@
 
 import { strict } from 'assert';
 import { readFileSync } from 'fs';
-import c from 'ansi-colors';
 import { execSync } from 'child_process';
+import { EventEmitter } from 'events';
 
 const MARKERS = /**@type{const}*/ ([
     { begin: /^```\w+ (.+)$/, end: '```' },
@@ -11,14 +11,22 @@ const MARKERS = /**@type{const}*/ ([
 ]);
 
 /**
+ * @typedef {EventEmitter<{marker: [string], exec: [string], verbatim: [string]}>} MdppEventEmitter
+ */
+
+/**
  * @param {string} input 
- * @param {{exec?: (cmd: string) => string, readFile?: (path: string) => string }} opts
+ * @param {Object} opts
+ * @param {(cmd: string) => string=} opts.exec
+ * @param {(path: string) => string=} opts.readFile
+ * @param {MdppEventEmitter=} opts.eventEmitter
  * @returns {string}
  */
 export function mdpp(input, opts = {}) {
     const {
         exec = cmd => execSync(cmd, { encoding: 'utf8' }),
         readFile = path => readFileSync(path, 'utf8'),
+        eventEmitter = new EventEmitter(),
     } = opts;
 
     /** @type {{line: string, file: string, end: typeof MARKERS[number]['end']} | null} */
@@ -37,9 +45,7 @@ export function mdpp(input, opts = {}) {
         if (found !== undefined && marker === null) {
             strict(found.match !== null);
             marker = { line: trimmedLine, file: found.match[1], end: found.end };
-            process.stdout.write(
-                `${c.blue(`[Line ${lineNum}]`)} Opening marker ${c.magenta(marker.file)} .. `
-            );
+            eventEmitter.emit('marker', marker.file);
         } else if (marker !== null && trimmedLine === marker.end) {
             write(marker.line);
             let content;
@@ -50,7 +56,7 @@ export function mdpp(input, opts = {}) {
 
                 parts[0] = cmd;
                 content = exec(parts.join(' '));
-                console.info('exec', c.cyan(marker.file));
+                eventEmitter.emit('exec', marker.file);
             } else {
                 content = readFile(marker.file);
                 content = content
@@ -58,7 +64,7 @@ export function mdpp(input, opts = {}) {
                     .replace(/^\s*\/\/\s*prettier-ignore$\n/gm, '')
                     .trim();
 
-                console.info('verbatim', c.cyan(marker.file));
+                eventEmitter.emit('verbatim', marker.file);
             }
             write(content);
             write(marker.end);

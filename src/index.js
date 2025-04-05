@@ -11,7 +11,7 @@ const MARKERS = /**@type{const}*/ ([
 ]);
 
 /**
- * @typedef {EventEmitter<{marker: [string], exec: [string], verbatim: [string]}>} MdppEventEmitter
+ * @typedef {EventEmitter<{marker: [number, string], exec: [string], verbatim: [string]}>} MdppEventEmitter
  */
 
 /**
@@ -45,7 +45,7 @@ export function mdpp(input, opts = {}) {
         if (found !== undefined && marker === null) {
             strict(found.match !== null);
             marker = { line: trimmedLine, file: found.match[1], end: found.end };
-            eventEmitter.emit('marker', marker.file);
+            eventEmitter.emit('marker', lineNum, marker.file);
         } else if (marker !== null && trimmedLine === marker.end) {
             write(marker.line);
             let content;

@@ -40,7 +40,7 @@ describe('::mdpp', function () {
                 exec: cmd => `cmd is ${cmd}`,
                 readFile: path => readFiles[path],
                 eventEmitter: /** @type {import('mdpp').MdppEventEmitter} */ (new EventEmitter())
-                    .on('marker', file => events.push(file))
+                    .on('marker', (_lineNum, file) => events.push(file))
                     .on('exec', file => events.push(file))
                     .on('verbatim', file => events.push(file))
             })).to.be.equal(output);

@@ -1,8 +1,11 @@
-# mdpp - Markdown in-place preprocessor
+# mdinpp - Markdown In-place Preprocessor
 
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/acuarica/mdpp/test.yml?style=flat&logo=githubactions)](https://github.com/acuarica/mdpp/actions/workflows/test.yml)
-[![codecov](https://codecov.io/github/acuarica/mdpp/graph/badge.svg?token=O1XDX10UYG)](https://codecov.io/github/acuarica/mdpp)
-[![GitHub](https://img.shields.io/github/license/acuarica/mdpp?style=flat)](https://github.com/acuarica/mdpp/blob/main/LICENSE)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/acuarica/mdinpp/test.yml?style=for-the-badge&logo=githubactions)](https://github.com/acuarica/mdinpp/actions/workflows/test.yml)
+[![Codecov](https://img.shields.io/codecov/c/gh/acuarica/mdinpp?style=for-the-badge&logo=codecov)](https://codecov.io/github/acuarica/mdinpp)
+![NPM Version](https://img.shields.io/npm/v/mdinpp?style=for-the-badge)
+![NPM Downloads](https://img.shields.io/npm/dt/mdinpp?style=for-the-badge)
+![NPM Unpacked Size](https://img.shields.io/npm/unpacked-size/mdinpp?style=for-the-badge)
+[![GitHub License](https://img.shields.io/github/license/acuarica/mdinpp?style=for-the-badge)](https://github.com/acuarica/mdinpp/blob/main/LICENSE)
 
 Markdown in-place Preprocesor
 

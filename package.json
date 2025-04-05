@@ -2,13 +2,16 @@
     "name": "mdpp",
     "version": "0.1.0",
     "description": "Markdown Preprocessor In-Place",
-    "repository": "acuarica/mdpp",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/acuarica/mdpp.git"
+    },
     "author": "Luis Mastrangelo (https://acuarica.github.io)",
     "license": "MIT",
     "exports": "./src/index.js",
     "type": "module",
     "bin": {
-        "mdpp": "./bin/mdpp.js"
+        "mdpp": "bin/mdpp.js"
     },
     "files": [
         "src/",

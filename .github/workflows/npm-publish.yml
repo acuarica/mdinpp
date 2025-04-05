@@ -45,9 +45,8 @@ jobs:
       
       - name: Set up git user name and email to be able to commit
         run: |
-          git config --global user.name 'acuarica'
-          git config --global user.email 'acuarica@users.noreply.github.com'
-
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - run: 'npm version ${{ inputs.version }} --message ":rocket: Bump new version v%s"'
       # https://docs.github.com/en/actions/use-cases-and-examples/publishing-packages/publishing-nodejs-packages#publishing-packages-to-the-npm-registry
       # - run: npm publish --provenance --access public

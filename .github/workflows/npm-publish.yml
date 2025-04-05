@@ -3,19 +3,27 @@ name: NPM Publish
 on:
   workflow_dispatch:
 
-permissions:
-  contents: read
+# `FORCE_COLOR` is used by `chalk`, which is used internally by `mocha`.
+# https://github.com/chalk/chalk#supportscolor
+# https://github.com/orgs/community/discussions/26944#discussioncomment-3254075
+env:
+  FORCE_COLOR: 3
 
 jobs:
+
   publish:
     runs-on: ubuntu-latest
+    # permissions:
+      # contents: read
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+          registry-url: https://registry.npmjs.org
       - run: npm ci
       - run: npm run test
-      - run: npm publish
+      # https://docs.github.com/en/actions/use-cases-and-examples/publishing-packages/publishing-nodejs-packages#publishing-packages-to-the-npm-registry
+      - run: npm publish --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

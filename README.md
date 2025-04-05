@@ -5,3 +5,11 @@
 [![GitHub](https://img.shields.io/github/license/acuarica/mdpp?style=flat)](https://github.com/acuarica/mdpp/blob/main/LICENSE)
 
 Markdown in-place Preprocesor
+
+For example
+
+```json .c8rc.json
+{
+    "reporter": ["lcov", "text"]
+}
+```

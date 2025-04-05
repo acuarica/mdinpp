@@ -1,7 +1,7 @@
 {
-    "name": "mdpp",
+    "name": "mdinpp",
     "version": "0.1.0",
-    "description": "Markdown Preprocessor In-Place",
+    "description": "Markdown in-place Preprocessor",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/acuarica/mdpp.git"

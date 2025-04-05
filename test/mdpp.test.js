@@ -1,8 +1,8 @@
 import { expect } from 'chai';
-import { mdpp } from 'mdpp';
+import { mdpp } from 'mdinpp';
 import { EventEmitter } from 'events';
 
-describe('::mdpp', function () {
+describe('::mdinpp', function () {
 
     /** @type {{[file: string]: string}} */
     const readFiles = {
@@ -39,7 +39,7 @@ describe('::mdpp', function () {
             expect(mdpp(input, {
                 exec: cmd => `cmd is ${cmd}`,
                 readFile: path => readFiles[path],
-                eventEmitter: /** @type {import('mdpp').MdppEventEmitter} */ (new EventEmitter())
+                eventEmitter: /** @type {import('mdinpp').MdppEventEmitter} */ (new EventEmitter())
                     .on('marker', (_lineNum, file) => events.push(file))
                     .on('exec', file => events.push(file))
                     .on('verbatim', file => events.push(file))

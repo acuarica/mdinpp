@@ -25,6 +25,6 @@ jobs:
       - run: npm ci
       - run: npm run test
       # https://docs.github.com/en/actions/use-cases-and-examples/publishing-packages/publishing-nodejs-packages#publishing-packages-to-the-npm-registry
-      - run: npm publish --provenance
+      - run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

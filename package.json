@@ -11,7 +11,7 @@
     "exports": "./src/index.js",
     "type": "module",
     "bin": {
-        "mdpp": "bin/mdpp.js"
+        "mdinpp": "bin/mdinpp.js"
     },
     "files": [
         "src/",

@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { mdpp } from 'mdinpp';
+import { mdinpp } from 'mdinpp';
 import { EventEmitter } from 'events';
 
 describe('::mdinpp', function () {
@@ -36,7 +36,7 @@ describe('::mdinpp', function () {
             /** @type{string[]} */
             const events = [];
 
-            expect(mdpp(input, {
+            expect(mdinpp(input, {
                 exec: cmd => `cmd is ${cmd}`,
                 readFile: path => readFiles[path],
                 eventEmitter: /** @type {import('mdinpp').MdppEventEmitter} */ (new EventEmitter())

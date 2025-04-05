@@ -4,7 +4,7 @@ import chaiExec from '@jsdevtools/chai-exec';
 use(chaiExec);
 
 chaiExec.defaults = {
-    command: 'bin/mdpp.js'
+    command: 'bin/mdinpp.js'
 }
 
 describe('::bin', () => {

@@ -22,7 +22,7 @@ const MARKERS = /**@type{const}*/ ([
  * @param {MdppEventEmitter=} opts.eventEmitter
  * @returns {string}
  */
-export function mdpp(input, opts = {}) {
+export function mdinpp(input, opts = {}) {
     const {
         exec = cmd => execSync(cmd, { encoding: 'utf8' }),
         readFile = path => readFileSync(path, 'utf8'),

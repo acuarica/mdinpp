@@ -8,11 +8,3 @@
 [![GitHub License](https://img.shields.io/github/license/acuarica/mdinpp?style=for-the-badge)](https://github.com/acuarica/mdinpp/blob/main/LICENSE)
 
 Markdown in-place Preprocesor
-
-For example
-
-```json .c8rc.json
-{
-    "reporter": ["lcov", "text"]
-}
-```

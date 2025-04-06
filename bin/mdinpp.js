@@ -3,15 +3,19 @@
 import { readFileSync, writeFileSync } from 'fs';
 import { EventEmitter } from 'events';
 import c from 'ansi-colors';
+import { Command } from 'commander';
+import packageJson from '../package.json' with { type: 'json' }
 
 import { mdinpp } from 'mdinpp';
 
 function main() {
-    const args = process.argv.slice(2);
+    const cmd = new Command()
+        .version(packageJson.version)
+        .description(packageJson.description)
+        .argument('<file name>')
+        .parse();
 
-    if (args.length !== 1)
-        throw new Error('Invalid number of arguments');
-
+    const args = cmd.args;
     const input = readFileSync(args[0], 'utf8');
     const output = mdinpp(input, {
         eventEmitter: /** @type {import('mdinpp').MdinppEventEmitter} */ (new EventEmitter())

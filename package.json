@@ -36,7 +36,8 @@
         "text"
     ],
     "dependencies": {
-        "ansi-colors": "^4.1.3"
+        "ansi-colors": "^4.1.3",
+        "commander": "^13.1.0"
     },
     "devDependencies": {
         "@jsdevtools/chai-exec": "^2.1.1",

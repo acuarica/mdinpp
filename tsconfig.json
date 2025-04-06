@@ -3,7 +3,7 @@
     /* Language and Environment */
     "target": "es2016", /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
     /* Modules */
-    "module": "Node16", /* Specify what module code is generated. */
+    "module": "Node18", /* Specify what module code is generated. */
     "moduleResolution": "node16", /* Specify how TypeScript looks up a file from a given module specifier. */
     /* JavaScript Support */
     // "allowJs": true,                                  /* Allow JavaScript files to be a part of your program. Use the 'checkJS' option to get errors from these files. */
@@ -21,6 +21,7 @@
     // "erasableSyntaxOnly": true,                       /* Do not allow runtime constructs that are not part of ECMAScript. */
     // "allowSyntheticDefaultImports": true,             /* Allow 'import x from y' when a module doesn't have a default export. */
     "esModuleInterop": true, /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
+    "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true, /* Ensure that casing is correct in imports. */
     /* Type Checking */
     "strict": true, /* Enable all strict type-checking options. */

@@ -20,6 +20,18 @@ jobs:
       - run: npm ci
       - run: npm run check
 
+  readme-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm ci
+
+      - name: Embed code examples into README
+        run: npm run make:readme
+
+      - name: Check if README is up-to-date
+        run: git --no-pager diff --exit-code README.md || (echo "==== README is not up to date, run 'npm run make:readme' and include changes made to 'README.md' ====" && false)
+
   test:
     strategy:
       # Runs all node versions using the same `os` in parallel

@@ -20,7 +20,8 @@
     "scripts": {
         "check": "tsc",
         "test": "mocha",
-        "coverage": "c8 mocha"
+        "coverage": "c8 mocha",
+        "make:readme": "mdinpp README.md"
     },
     "keywords": [
         "cli",

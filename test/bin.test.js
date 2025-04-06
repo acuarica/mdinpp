@@ -1,5 +1,5 @@
 import { expect, use } from 'chai';
-import chaiExec from '@jsdevtools/chai-exec';
+const { default: chaiExec } = await import('@jsdevtools/chai-exec');
 
 use(chaiExec);
 

@@ -11,7 +11,8 @@ Markdown in-place Preprocesor
 
 ## Usage
 
-```console !bin/mdinpp.js --help
+```console !mdinpp=bin/mdinpp.js --help
+$ mdinpp --help
 Usage: mdinpp [options] <file name>
 
 Markdown in-place Preprocessor

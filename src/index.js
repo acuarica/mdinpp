@@ -52,9 +52,15 @@ export function mdinpp(input, opts = {}) {
             if (marker.file.startsWith('!')) {
                 const parts = marker.file.substring(1).split(' ');
                 const bin = parts[0].split('=');
-                const [, cmd] = bin.length === 1 ? [bin[0], bin[0]] : [bin[0], bin[1]];
 
-                parts[0] = cmd;
+                if (bin.length === 1) {
+                    parts[0] = bin[0];
+                } else if (marker.end === '```') {
+                    parts[0] = bin[0];
+                    write(`$ ${parts.join(' ')}`);
+                    parts[0] = bin[1];
+                }
+
                 content = exec(parts.join(' '));
                 eventEmitter.emit('exec', marker.file);
             } else {

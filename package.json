@@ -21,7 +21,7 @@
         "check": "tsc",
         "test": "mocha",
         "coverage": "c8 mocha",
-        "make:readme": "mdinpp README.md"
+        "make:readme": "bin/mdinpp.js README.md"
     },
     "keywords": [
         "cli",

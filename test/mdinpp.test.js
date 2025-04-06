@@ -39,7 +39,7 @@ describe('::mdinpp', function () {
             expect(mdinpp(input, {
                 exec: cmd => `cmd is ${cmd}`,
                 readFile: path => readFiles[path],
-                eventEmitter: /** @type {import('mdinpp').MdppEventEmitter} */ (new EventEmitter())
+                eventEmitter: /** @type {import('mdinpp').MdinppEventEmitter} */ (new EventEmitter())
                     .on('marker', (_lineNum, file) => events.push(file))
                     .on('exec', file => events.push(file))
                     .on('verbatim', file => events.push(file))

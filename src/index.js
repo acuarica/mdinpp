@@ -11,7 +11,7 @@ const MARKERS = /**@type{const}*/ ([
 ]);
 
 /**
- * @typedef {EventEmitter<{marker: [number, string], exec: [string], verbatim: [string]}>} MdppEventEmitter
+ * @typedef {EventEmitter<{marker: [number, string], exec: [string], verbatim: [string]}>} MdinppEventEmitter
  */
 
 /**
@@ -19,7 +19,7 @@ const MARKERS = /**@type{const}*/ ([
  * @param {Object} opts
  * @param {(cmd: string) => string=} opts.exec
  * @param {(path: string) => string=} opts.readFile
- * @param {MdppEventEmitter=} opts.eventEmitter
+ * @param {MdinppEventEmitter=} opts.eventEmitter
  * @returns {string}
  */
 export function mdinpp(input, opts = {}) {

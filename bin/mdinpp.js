@@ -14,7 +14,7 @@ function main() {
 
     const input = readFileSync(args[0], 'utf8');
     const output = mdinpp(input, {
-        eventEmitter: /** @type {import('mdinpp').MdppEventEmitter} */ (new EventEmitter())
+        eventEmitter: /** @type {import('mdinpp').MdinppEventEmitter} */ (new EventEmitter())
             .on('marker', (lineNum, file) => process.stdout.write(`${c.blue(`[Line ${lineNum}]`)} Opening marker ${c.magenta(file)} .. `))
             .on('exec', file => console.info('exec', c.cyan(file)))
             .on('verbatim', file => console.info('verbatim', c.cyan(file)))

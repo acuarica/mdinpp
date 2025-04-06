@@ -4,7 +4,7 @@
     "description": "Markdown in-place Preprocessor",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/acuarica/mdpp.git"
+        "url": "git+https://github.com/acuarica/mdinpp.git"
     },
     "author": "Luis Mastrangelo (https://acuarica.github.io)",
     "license": "MIT",

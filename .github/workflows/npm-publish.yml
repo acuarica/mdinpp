@@ -16,9 +16,6 @@ on:
         required: true
         type: string
 
-# permissions:
-#   contents: write
-
 # `FORCE_COLOR` is used by `chalk`, which is used internally by `mocha`.
 # https://github.com/chalk/chalk#supportscolor
 # https://github.com/orgs/community/discussions/26944#discussioncomment-3254075
@@ -31,7 +28,6 @@ jobs:
     if: inputs.confirm == 'yes'
     runs-on: ubuntu-latest
     permissions:
-      # contents: read
       id-token: write
     steps:
       - uses: actions/checkout@v4

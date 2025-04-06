@@ -8,3 +8,16 @@
 [![GitHub License](https://img.shields.io/github/license/acuarica/mdinpp?style=for-the-badge)](https://github.com/acuarica/mdinpp/blob/main/LICENSE)
 
 Markdown in-place Preprocesor
+
+## Usage
+
+```console !bin/mdinpp.js --help
+Usage: mdinpp [options] <file name>
+
+Markdown in-place Preprocessor
+
+Options:
+  -V, --version  output the version number
+  -h, --help     display help for command
+
+```

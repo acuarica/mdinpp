@@ -16,8 +16,8 @@ on:
         required: true
         type: string
 
-permissions:
-  contents: write
+# permissions:
+#   contents: write
 
 # `FORCE_COLOR` is used by `chalk`, which is used internally by `mocha`.
 # https://github.com/chalk/chalk#supportscolor
@@ -58,9 +58,9 @@ jobs:
 
       - run: 'npm version ${{ inputs.version }} --message ":rocket: Bump new version v%s"'
       # https://docs.github.com/en/actions/use-cases-and-examples/publishing-packages/publishing-nodejs-packages#publishing-packages-to-the-npm-registry
-      # - run: npm publish --provenance --access public
-      #   env:
-      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Push `package.json` bump commit and newly created tag for this release
         run: |
           git push

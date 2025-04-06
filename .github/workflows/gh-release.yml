@@ -1,0 +1,17 @@
+name: GitHub Release
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "VERSION=`echo ${{ github.ref_name }} | cut -c2-`" >> "$GITHUB_ENV"
+
+      # https://cli.github.com/manual/gh_release_create
+      - run: echo "You can find the NPM package published in https://www.npmjs.com/package/mdinpp/v/$VERSION" | gh release create ${{ github.ref_name }} --draft --generate-notes --notes-file - --prerelease --verify-tag
+        env:
+          GH_TOKEN: ${{ github.token }}

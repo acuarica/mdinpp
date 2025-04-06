@@ -35,6 +35,11 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Enable `git push --tags` to trigger other workflows
+          # https://docs.github.com/en/actions/using-workflows/triggering-a-workflow#triggering-a-workflow-from-a-workflow
+          token: ${{ secrets.GH_PAT }}
+
       - run: echo "Version $VERSION | Confirm $CONFIRM"
         env:
           VERSION: ${{ inputs.version }}
@@ -48,8 +53,8 @@ jobs:
       
       - name: Set up git user name and email to be able to commit
         run: |
-          git config --global user.name 'acuarica'
-          git config --global user.email 'acuarica@users.noreply.github.com'
+          git config user.name 'acuarica'
+          git config user.email 'acuarica@users.noreply.github.com'
 
       - run: 'npm version ${{ inputs.version }} --message ":rocket: Bump new version v%s"'
       # https://docs.github.com/en/actions/use-cases-and-examples/publishing-packages/publishing-nodejs-packages#publishing-packages-to-the-npm-registry
